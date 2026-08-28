@@ -1,4 +1,0 @@
-# Protótipo do Teste de Componentes. Aberto a quem tem o link,
-# fora dos buscadores enquanto o piloto estiver em curso.
-User-agent: *
-Disallow: /
