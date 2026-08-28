@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+/* Sistema visual da Metodologia InterCriativa.
+   Importado do projeto Claude Design "teste - digital library",
+   arquivo "Intercriativa Lab · Recursos Digitais.dc.html".
+
+   As cores das aulas são as do design. Duas delas — o teal e o laranja —
+   reprovam em contraste sobre branco quando carregam texto (2,7:1 e 2,5:1,
+   contra os 4,5:1 exigidos). Por isso cada cor tem um par: a cor do design
+   para faixas, fios, fundos e etiquetas, e uma versão escurecida só para
+   texto. O tom continua o mesmo; muda apenas a legibilidade. */
+:root {
+  /* Superfícies */
+  --paper:      #F4F5F8;
+  --white:      #FFFFFF;
+  --sunk:       #F7F8FB;
+  --sunk-2:     #F0F1F5;
+  --hover:      #F7F9FC;
+  --tabs-bg:    #EDEFF3;
+
+  /* Tinta */
+  --ink:        #1B1D22;
+  --ink-2:      #3E4149;
+  --ink-3:      #5A5C64;
+  --muted:      #8A8C93;
+  --line:       #E4E5E9;
+  --line-strong:#C7CBD4;
+  --dash:       #A6B6CB;
+
+  /* Marca */
+  --roxo:       #8830EC;
+  --roxo-forte: #6A16C4;
+  --roxo-fundo: #4E0F94;
+  --roxo-tint:  #F3EAFE;
+  --roxo-line:  #DCC9F5;
+
+  /* Cores das aulas — hue do design + par legível para texto */
+  --azul:        #123F72;  --azul-txt:   #123F72;  --azul-tint:   #EEF3FA;
+  --teal:        #17AFB9;  --teal-txt:   #0E7F87;  --teal-tint:   #E7F7F8;
+  --laranja:     #E8912D;  --laranja-txt:#9A5B08;  --laranja-tint:#FDF6EE;
+  --roxo-aula:   #6E4B9E;  --roxo-aula-txt:#6E4B9E;--roxo-aula-tint:#F5F1FA;
+  --rosa:        #D9245E;  --rosa-txt:   #B81A4C;  --rosa-tint:   #FDECF2;
+  --cinza-aula:  #4A4E57;  --cinza-aula-txt:#4A4E57;--cinza-aula-tint:#F1F2F4;
+
+  /* Estados da revisão */
+  --confirmada:      #17795A;  --confirmada-tint: #E7F4EF;
+  --adaptar:         #9A5B08;  --adaptar-tint:    #FDF6EE;
+  --duvida:          #B81A4C;  --duvida-tint:     #FDECF2;
+
+  /* Apelidos mantidos para a página da sessão continuar valendo sem alteração */
+  --ink-soft:        var(--ink-2);
+  --confirmada-soft: var(--confirmada-tint);
+  --adaptar-soft:    var(--adaptar-tint);
+  --duvida-soft:     var(--duvida-tint);
+
+  --focus: #8830EC;
+
+  --font: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --r-sm: 9px;
+  --r-md: 10px;
+  --r-lg: 12px;
+
+  --shadow:      0 1px 2px rgba(21,24,29,.04);
+  --shadow-lift: 0 14px 30px rgba(21,24,29,.10);
+  --shadow-menu: 0 12px 32px rgba(21,24,29,.14);
+  --shadow-panel:-8px 0 40px rgba(21,24,29,.18);
+
+  --ease: cubic-bezier(.22,1,.36,1);
+
+  /* Coluna de leitura */
+  --col:      720px;
+  --col-wide: 830px;
+  --pad:      clamp(16px, 4vw, 28px);
+
+  --accent:      var(--roxo);
+  --accent-txt:  var(--roxo-forte);
+  --accent-tint: var(--roxo-tint);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+p { margin: 0 0 1em; }
+p:last-child { margin-bottom: 0; }
+a { color: var(--roxo-forte); text-decoration: none; }
+a:hover { color: var(--roxo-fundo); }
+
+input { font-family: var(--font); }
+input:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
+button { font: inherit; color: inherit; }
+
+/* Título grande: peso leve, com a última palavra em destaque */
+.t-h1 { font-size: 34px; font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; color: var(--ink); max-width: 620px; text-wrap: pretty; }
+.t-h2 { font-size: 28px; font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; color: var(--ink); }
+.t-h1 b, .t-h2 b { font-weight: 700; color: var(--accent-txt); }
+.t-body { font-size: 14px; line-height: 1.6; color: var(--ink-2); max-width: 600px; text-wrap: pretty; }
+.t-meta { font-size: 12.5px; font-weight: 600; color: var(--muted); }
+
+.eyebrow {
+  margin: 0; font-size: 11px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--roxo);
+}
+.eyebrow--muted { color: var(--muted); }
+
+/* Rótulo de seção com fio */
+.rule {
+  display: flex; align-items: baseline; gap: 12px; margin: 0 0 14px;
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink); white-space: nowrap;
+}
+.rule::after { content: ""; height: 1px; background: var(--ink); flex: 1; transform: translateY(-3px); }
+.rule--muted { color: var(--muted); }
+.rule--muted::after { background: var(--line); }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: absolute; left: 8px; top: -60px; z-index: 200;
+  background: var(--roxo); color: #fff; padding: 12px 18px;
+  border-radius: var(--r-sm); font-weight: 600; transition: top .15s var(--ease);
+}
+.skip-link:focus { top: 8px; color: #fff; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 8px; }
+
+/* Lista com travessão — definida UMA vez, porque as duas páginas a usam.
+   Antes estava duplicada em app.css e review.css e as regras brigavam. */
+.dashes { list-style: none; margin: 0; padding: 0; }
+.dashes li {
+  position: relative; padding-left: 17px;
+  font-size: 12px; line-height: 1.55; color: var(--ink); margin-bottom: 7px;
+}
+/* O travessão é posicionado, não uma coluna de grade: os itens carregam
+   links e falas em linha, e a grade transformaria cada um numa célula. */
+.dashes li::before { content: "—"; position: absolute; left: 0; color: var(--dash); }
+.dashes strong { font-weight: 700; }
+
+/* O plano composto para o PDF fica no documento, mas só aparece na impressão.
+   Sem isto ele ficava visível ao pé da página e o logotipo de 2000px criava
+   rolagem horizontal no celular. */
+#printRoot { display: none; }
+
+@keyframes viewIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* No celular o corpo sobe para 16px e os alvos para 44px — o design é denso
+   para notebook, mas o teste acontece muito no telefone. */
+@media (max-width: 760px) {
+  .t-h1 { font-size: 26px; max-width: none; }
+  .t-h2 { font-size: 22px; }
+  .t-body, .dashes li, .row__v { font-size: 16px !important; max-width: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
